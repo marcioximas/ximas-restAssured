@@ -8,6 +8,8 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
+import org.json.JSONObject;
+
 import static org.junit.Assert.*;
 
 public class MyStepdefs {
@@ -48,8 +50,8 @@ public class MyStepdefs {
 
     @When("I pass the url of products in the request")
     public void iPassTheUrlOfProductsInTheRequest() {
-        httpRequest = RestAssured.given();
-        response = httpRequest.get("/products");
+    //    httpRequest = RestAssured.given();
+    //    response = httpRequest.get("/products");
 
     }
 
@@ -68,5 +70,21 @@ public class MyStepdefs {
 
 
     }
+
+
+    @Given("I hit the url of post product api endpoint")
+    public void iHitTheUrlOfPostProductApiEndpoint() {
+      //  RestAssured.baseURL = "http://fakestoreapi.com";
+     //   httpRequest = httpRequest.given();
+      //  JSONObject requestParams = new JSONObject();
+     //   requestParams.put()
+
+    }
+    @When("I pass the request body of products {string}")
+    public void i_pass_the_request_body_of_products(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
 
 }
