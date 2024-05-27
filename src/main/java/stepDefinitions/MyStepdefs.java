@@ -137,8 +137,31 @@ public class MyStepdefs {
 
     }
 
-    @And("I pass the request body of put api")
-    public void iPassTheRequestBodyOfPutApi() {
+    @Given("I hit the url of delete product api endpoint")
+    public void iHitTheUrlOfDeleteProductApiEndpoint() {
+        RestAssured.baseURI = "https://fakestoreapi.com/";
+        requestParams = new JSONObject();
+    }
+
+
+    @When("I pass the url of delete product in the request with {string}")
+    public void iPassTheUrlOfDeleteProductInTheRequestWith(String productNumber) {
+        httpRequest = given();
+        requestParams.put("title","Test");
+        requestParams.put("price",23.4);
+        requestParams.put("description","The sshoes perfect for your run!!");
+        requestParams.put("image","https://i.pravatar.ccc");
+        requestParams.put("category","electroniccc");
+        httpRequest.body(requestParams.toString());
+        response = httpRequest.delete("/products/"+ productNumber);
+        body = response.getBody();
+
+        JsonPath jsonPath = body.jsonPath();
+
+        // s = jsonPath.get("id").toString();
+        System.out.println(response.getStatusLine());
+        System.out.println(body.asString());
 
     }
+
 }
