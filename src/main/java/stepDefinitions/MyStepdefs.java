@@ -76,12 +76,16 @@ public class MyStepdefs {
 
     }
 
-
-    @Given("I hit the url of post product api endpoint")
-    public void iHitTheUrlOfPostProductApiEndpoint() {
+    @Given("I access the POST product API endpoint")
+    public void i_access_the_post_product_api_endpoint() {
         RestAssured.baseURI = "http://fakestoreapi.com";
         httpRequest = given();
         requestParams = new JSONObject();
+    }
+
+    @Given("I hit the url of post product api endpoint")
+    public void iHitTheUrlOfPostProductApiEndpoint() {
+
 
 
 
